@@ -1,0 +1,154 @@
+body {
+	text-align: center;
+	background-color: #333;
+	font-family: Verdana,Arial,sans-serif;
+	height: 100%;
+}
+
+#wrap {
+	background-color: #ccc;
+	width: 800px;
+	margin: 0 auto;
+	height: 100%;
+	position: relative;
+}
+
+canvas {
+	background-color: #fff;
+}
+
+#canvas-graph {
+	background-image: url('raster.gif');
+	background-position: top right;
+}
+
+#canvas-pulses {
+	background-image: url('raster.gif');
+	background-position: bottom right;
+}
+
+#hover-graph {
+	width: 65px;
+	display: none;
+	position: absolute;
+	left: 50px;
+	top: 0;
+	border: 1px solid black;
+	padding-top: 20px;
+	padding-right: 10px;
+	text-align: left;
+	font-size: 0.75em;
+	padding-bottom: 20px;
+	z-index: 5;
+	text-align: right;
+	background-color: #ffffff;
+}
+
+#hover-pulse {
+	width: 100px;
+	display: none;
+	position: absolute;
+	left: 50px;
+	top: 0;
+	border: 1px solid black;
+	padding-top: 20px;
+	padding-left: 10px;
+	text-align: left;
+	font-size: 0.75em;
+	padding-bottom: 20px;
+	background-color: #ffffff;
+	z-index: 5;
+}
+
+#cover-graph {
+	position: absolute;
+	width: 800px;
+	height: 400px;
+	background-color: #fff;
+	top: 203px;
+	left: 0px;
+	z-index: 1;
+	background-image: url('raster.gif');
+	background-position: top right;
+}
+
+#cover-pulses {
+	position: absolute;
+	width: 800px;
+	height: 200px;
+	background-color: #fff;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	background-image: url('raster.gif');
+	background-position: bottom right;
+}
+
+
+#values {
+	position: absolute;
+	width: 0px;
+	height: 580px;
+	background-color: #fff;
+	top: 0px;
+	right: 0px;
+	z-index: 2;
+	overflow: hidden;
+	padding-left: 20px;
+	padding-top: 10px;
+	border: 1px solid black;
+	border-right: none;
+	margin-top: 5px;
+	cursor: e-resize;
+	text-align: left;
+	z-index: 4;
+	font-size: 0.8em;
+}
+
+#values table {
+	text-align: right;
+}
+
+#values table td, #values table th , #values span{
+	width: 150px;
+}
+
+#values span {
+	display: block;
+	float: left;
+	margin-left: 2px;
+	padding: 1px;
+	text-align: right;
+}
+
+#values br {
+	clear: both;
+}
+
+#legende {
+	position: absolute;
+	left: 5px;
+	top: 500px;
+	width: 100px;
+	opacity: 0.4;
+	z-index: 3;
+	cursor: ne-resize;
+}
+
+#values span.super {
+	font-size: 0.83em;
+	vertical-align: super;
+	width: auto;
+}
+
+#help {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background-color: #fff;
+	font-weight: bold; 
+	border: 1px solid #000;
+	padding: 2px;
+	cursor: nw-resize;
+	z-index: 5;
+}
