@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************************
+*	Modeling Infiltration
+*	A Bachelor Thesis
+*	HTML structure
+*
+*	author: Ramon Wenger
+*	University of Bern, 2012
+*	http://scg.unibe.ch
+*
+*	This file contains the structure of the document the application is
+*	built on. It uses HTML5 standard. It is valid HTML5 according to 
+*	the W3 validator at http://validator.w3.org/check
+*************************************************************************************/
+ -->
+<html>
+<head>
+<title>Modeling Infiltration</title>
+<link href="mi.css" rel="stylesheet" type="text/css">
+<meta name="description" content="Illustration of water infiltration in the soil, made with Javascript and HTML5" />
+<meta name="keywords" content="HTML5,Javascript,Water Infiltration" />
+<meta name="author" content="Ramon Wenger" />
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+	<div id="wrap">
+		<canvas id="canvas-pulses" width="800" height="200"></canvas>
+		<canvas id="canvas-graph" width="800" height="400"></canvas>
+		<div id="hover-graph"></div>
+		<div id="hover-pulse"></div>
+		<div id="cover-pulses"></div>
+		<div id="cover-graph"></div>
+		<div id="values"></div>
+		<img id="legende" src="legende.gif" alt="legende" title="legende"/>
+		<div id="help">?</div>
+		<button id="pulse1">1 Puls</button>
+		<button id="pulse2">2 Pulse</button>
+		<button id="pulse3">3 Pulse</button>
+		<button id="pulse4">4 Pulse</button>
+		<button id="pulse6">6 Pulse</button>
+		<button id="pulse12">12 Pulse</button>
+		<br/>
+		<button id="half-l">1/2 * L</button>
+		<button id="double-l">2 * L</button>
+		<br/>
+		<button id="animation">Animation ON</button>
+	</div>
+	<script type="text/javascript" src="mi-definitions.js"></script>
+	<script type="text/javascript" src="mi-calls.js"></script>
+</body>
+</html>

@@ -1,10 +1,22 @@
+/*************************************************************************************
+*	Modeling Infiltration
+*	A Bachelor Thesis
+*	Layout
+*
+*	author: Ramon Wenger
+*	University of Bern, 2012
+*	http://scg.unibe.ch
+*
+*	This CSS file contains the style and layout information that is
+*	applied to the html part of the application
+*
+*************************************************************************************/
 body {
 	text-align: center;
 	background-color: #333;
 	font-family: Verdana,Arial,sans-serif;
 	height: 100%;
 }
-
 #wrap {
 	background-color: #ccc;
 	width: 800px;
@@ -12,21 +24,17 @@ body {
 	height: 100%;
 	position: relative;
 }
-
 canvas {
 	background-color: #fff;
 }
-
 #canvas-graph {
 	background-image: url('raster.gif');
 	background-position: top right;
 }
-
 #canvas-pulses {
 	background-image: url('raster.gif');
 	background-position: bottom right;
 }
-
 #hover-graph {
 	width: 65px;
 	display: none;
@@ -43,7 +51,6 @@ canvas {
 	text-align: right;
 	background-color: #ffffff;
 }
-
 #hover-pulse {
 	width: 100px;
 	display: none;
@@ -59,7 +66,6 @@ canvas {
 	background-color: #ffffff;
 	z-index: 5;
 }
-
 #cover-graph {
 	position: absolute;
 	width: 800px;
@@ -71,7 +77,6 @@ canvas {
 	background-image: url('raster.gif');
 	background-position: top right;
 }
-
 #cover-pulses {
 	position: absolute;
 	width: 800px;
@@ -83,8 +88,6 @@ canvas {
 	background-image: url('raster.gif');
 	background-position: bottom right;
 }
-
-
 #values {
 	position: absolute;
 	width: 0px;
@@ -104,15 +107,12 @@ canvas {
 	z-index: 4;
 	font-size: 0.8em;
 }
-
 #values table {
 	text-align: right;
 }
-
 #values table td, #values table th , #values span{
 	width: 150px;
 }
-
 #values span {
 	display: block;
 	float: left;
@@ -120,11 +120,9 @@ canvas {
 	padding: 1px;
 	text-align: right;
 }
-
 #values br {
 	clear: both;
 }
-
 #legende {
 	position: absolute;
 	left: 5px;
@@ -134,13 +132,11 @@ canvas {
 	z-index: 3;
 	cursor: ne-resize;
 }
-
 #values span.super {
 	font-size: 0.83em;
 	vertical-align: super;
 	width: auto;
 }
-
 #help {
 	position: absolute;
 	top: 5px;

@@ -1,3 +1,21 @@
+/*************************************************************************************
+*	Modeling Infiltration
+*	a Bachelor Thesis
+*	Calls
+*
+*	author: Ramon Wenger
+*	University of Bern, 2012
+*	http://scg.unibe.ch
+*
+*	This file contains the creation of the pulses and the call of the 
+*	main() function
+*************************************************************************************/
+
+/*************************************************************************************
+*
+*	PULSE DEFINITIONS
+*
+*************************************************************************************/
 var pulses12 = []; 
 pulses12.push(new Pulse(0,2800,0));
 pulses12.push(new Pulse(2800,9200,0.00000017));
@@ -45,7 +63,11 @@ pulses6.push(new Pulse(58000, 75000, 4.17e-07));
 pulses6.push(new Pulse(75000, 90000, 6.59e-07));
 
 animate = true;
-
+/*************************************************************************************
+*
+*	BUTTON EVENT HANDLERS
+*
+*************************************************************************************/
 document.getElementById("pulse1").onclick = function(){ main(pulses1) };
 document.getElementById("pulse2").onclick = function(){ main(pulses2) };
 document.getElementById("pulse3").onclick = function(){ main(pulses3) };
@@ -62,58 +84,9 @@ document.getElementById("animation").onclick = function(){
 		this.innerHTML = "Animation OFF";
 	}
 };
-values = document.getElementById('values');
-valuesHidden = true;
-values.onclick = function(e) {
-	if(valuesHidden){
-		values.style.width = "768px";
-		values.style.right = "5px";
-		values.style.borderRight = "1px solid black";
-		valuesHidden = false;		
-	}else{
-		values.style.width = "0px";
-		values.style.right = "0px";
-		values.style.borderRight = "none";
-		valuesHidden = true;		
-	}
-}
-legendeSmall = true;
-document.getElementById("legende").onclick = function(e){
-	if(legendeSmall){
-		this.style.width = "350px";
-		this.style.top = "300px";
-		this.style.opacity = "1";
-		legendeSmall = false;
-	}else{
-		this.style.width = "100px";
-		this.style.opacity = "0.4";
-		this.style.top = "500px";
-		legendeSmall = true;
-	}
-}
-helpSmall = true
-document.getElementById("help").onclick = function(e){
-	if(helpSmall){
-		this.style.width = "785px";
-		this.style.height = "588px";
-		this.style.fontWeight = "normal";
-		this.innerHTML = "<br/><br/>Documentation goes here";
-		helpSmall = false;
-	}else{
-		this.style.width = "auto";
-		this.style.height = "auto";
-		this.style.fontWeight = "bold";
-		this.innerHTML = "?";
-		helpSmall = true;
-	}
-}
-
 animating = false;
-
 main(pulses2);
 animation();
-
-
 function main(pulses){
 	currentPulses = pulses;
 	pulses = setVars(pulses);
@@ -206,7 +179,6 @@ function main(pulses){
 			functions.push(currentFunction);
 		}
 	}
-	
 	html = "<table><tr><th>Pulse</th><th>start</th><th>end</th><th>intensity</th></tr>";
 	for(i=0;i<pulses.length;i++){
 		p=pulses[i];
@@ -219,45 +191,6 @@ function main(pulses){
 	html += "<br/><span>timeframe</span><span>"+ xMax/3600 + "h " + xMax/60 % 60 + " min</span>";
 	html += "<br/><span>value of L</span><span>"+ L +" m</span><span class=\"super\">-1</span>";
 	values.innerHTML = html;
-	
 	if(animate)
 		animation();
-}
-
-function animation(){
-	if(!animating){
-		animating = true;
-		var step = 3;
-		var interval = 25;
-		var coverGraph = document.getElementById("cover-graph");
-		var coverPulses = document.getElementById("cover-pulses");
-		var currentWidth = 800;
-		var currentLeft = 0;
-		var currentTop = 200;
-		var currentHeight = 400;
-		setTimeout(function(){reduce();}, interval);
-
-		function reduce()
-		{
-			if (currentWidth > 0 && currentHeight > 0)
-			{
-				currentWidth -= step;
-				currentLeft += step;
-				coverGraph.style.width = currentWidth + "px";
-				coverGraph.style.left = currentLeft + "px";
-				coverPulses.style.width = currentWidth + "px";
-				coverPulses.style.left = currentLeft + "px";
-				coverGraph.style.display = "block";
-				coverPulses.style.display = "block";
-				
-				setTimeout(function(){reduce();}, interval);
-			}
-			else
-			{
-				coverGraph.style.display = "none";
-				coverPulses.style.display = "none";
-				animating = false;
-			}
-		}
-	}
 }
