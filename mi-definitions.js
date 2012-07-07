@@ -134,15 +134,7 @@ function jump(p1, p2, t){
 function linear(start, slope, t){
 	return start.y+slope*(t-start.x);
 }
-function checkPulse(x,y){
-	var pulse;
-	for (i = 0; i< currentPulses.length;i++){
-		pulse = currentPulses[i];
-			if((x>pulse.start/xStep && x<pulse.end/xStep) && (y<canvasPulses.height && y>canvasPulses.height-pulse.intensity*canvasPulses.height/maxIntensity) )
-			 return pulse;
-	}
-	return 0;
-}
+
 function getMaxIntensity(pulses){
 	max = 0;
 	for(i=0;i<pulses.length;i++){
@@ -265,7 +257,6 @@ document.getElementById("help").onclick = function(e){
 		helpSmall = true;
 	}
 }
-
 /*************************************************************************************
 *
 *	DISPLAY FUNCTIONS
@@ -323,7 +314,7 @@ function drawRec(startx, maxHeight, endx, height) {
 	ctx.fillRect(startx, maxHeight-height, endx-startx, height);
 	return false;
  }
- function drawPulse(pulse){
+function drawPulse(pulse){
 	if(pulse.intensity>0){
 		drawRec(pulse.start/xStep, canvasPulses.height, pulse.end/xStep, pulse.intensity*canvasPulses.height/maxIntensity);
 	}
@@ -335,7 +326,7 @@ function drawFunction(f, start, end, color){
 	var xx, yy;
 	var iMax = xMax;
 	ctx.beginPath();
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 2;
 	ctx.strokeStyle = color;
  for (var i=start;i<=end;i+=xStep) {
 	xx = i*scale.x; yy = scale.y*f(i);
@@ -343,4 +334,13 @@ function drawFunction(f, start, end, color){
   else         ctx.lineTo(xx,yy);
  }
  ctx.stroke();
+}
+function checkPulse(x,y){
+	var pulse;
+	for (i = 0; i< currentPulses.length;i++){
+		pulse = currentPulses[i];
+			if((x>pulse.start/xStep && x<pulse.end/xStep) && (y<canvasPulses.height && y>canvasPulses.height-pulse.intensity*canvasPulses.height/maxIntensity) )
+			 return pulse;
+	}
+	return 0;
 }
