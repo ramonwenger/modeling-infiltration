@@ -323,7 +323,7 @@ function drawRec(startx, maxHeight, endx, height) {
 	ctx.fillRect(startx, maxHeight-height, endx-startx, height);
 	return false;
  }
- function drawPulse(pulse){
+function drawPulse(pulse){
 	if(pulse.intensity>0){
 		drawRec(pulse.start/xStep, canvasPulses.height, pulse.end/xStep, pulse.intensity*canvasPulses.height/maxIntensity);
 	}
@@ -335,7 +335,7 @@ function drawFunction(f, start, end, color){
 	var xx, yy;
 	var iMax = xMax;
 	ctx.beginPath();
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 2;
 	ctx.strokeStyle = color;
  for (var i=start;i<=end;i+=xStep) {
 	xx = i*scale.x; yy = scale.y*f(i);
