@@ -91,8 +91,6 @@ function main(pulses){
 	currentPulses = pulses;
 	pulses = setVars(pulses);
 	clearCanvas();
-	//currentPoint = new Point(0,0);
-	//maxIntensity = getMaxIntensity(pulses);
 	difference = 0;
 	points = [];
 	points.push(new Point(0,0));
@@ -104,7 +102,6 @@ function main(pulses){
 	for(i=0; i<pulses.length;i++){
 		p = pulses[i];
 		next = pulses[i+1];
-		//drawPulse(pulses12[i]);
 		drawPulse(p);
 		if(i==1 && pulses.length - 1 != 1){
 			if(next.intensity > p.intensity){
@@ -131,11 +128,8 @@ function main(pulses){
 				drawFunction(next.drainagefrontStart, next.start, nextPoint.x, "#0a56ff");
 			}
 		} else if(i>=2 && i < pulses.length - 1){
-			//currentFunction = function(t) { return linear(points[points.length-1], p.v, t) }; 
-			//(function(points, p){ functions.push(function(t) { return linear(points[points.length-1], p.v, t) }) })(points, p);
 				currentPoint = points.top();
 				currentFunction = (function(point, p){return function(t){return linear(point, p.v, t)}})(currentPoint, p);
-
 			if(next.intensity > p.intensity){
 				nextPoint.x = intersection(currentFunction, function(t){ return jump(p,next,t); }, currentPoint.x, xMax);
 				nextPoint.y = currentFunction(nextPoint.x);
